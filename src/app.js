@@ -2,6 +2,7 @@
 
 const express = require('express')
 const cors = require("cors");
+const path = require('path');
 
 const app = express()
 
@@ -11,13 +12,15 @@ app.use(express.urlencoded({ extended: true }))
 
 const mainRouter = require('./routes/index')
 
-app.use('/public', express.static('src/public'))
-app.use('/', mainRouter)
+app.use(express.static(path.join(__dirname, '/build')));
+app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/', (req, res)=>{
-  console.log('Hello World')
-  res.json('Hello World')
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.use('/api', mainRouter)
+
 // @ts-ignore
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
