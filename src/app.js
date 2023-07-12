@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const mainRouter = require('./routes/index')
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '/build')));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
