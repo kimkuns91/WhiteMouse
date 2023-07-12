@@ -1,8 +1,16 @@
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/images/Logo.png'
+import { useDispatch } from 'react-redux'
+import { login } from '../../redux/user'
 
-const Header = ()=>{
+const Header = ({ isLogined })=>{
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const logoutBtn = ()=>{
+        dispatch(login({ isLogined : false }))
+        navigate('/')
+    }
     return(
         <div id='Header'>
             <div className='Wrap'>
@@ -14,9 +22,20 @@ const Header = ()=>{
                     <Link to='/board' className='Menu'>Board</Link>
                     <Link to='/video' className='Menu'>Video</Link>
                 </div>
-                <div>
-                    <Link to='/login' className='LoginBtn'>Login</Link>
-                </div>
+
+                { 
+                    !isLogined 
+                    ?
+                    <div>
+                        <Link to='/login' className='Menu'>Login</Link>
+                        <Link to='/signup' className='Menu'>SignUp</Link>
+                    </div>
+                    :
+                    <div>
+                        <Link to='/mypage' className='Menu'>My Page</Link>
+                        <button onClick={ logoutBtn } className='Menu'>Logout</button>
+                    </div>
+                }
             </div>
         </div>
     )

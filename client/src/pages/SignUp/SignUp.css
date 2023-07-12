@@ -1,0 +1,26 @@
+.SignUp {
+    padding: 80px 0;
+}
+.SignUp .Container {
+    display: flex;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 30px 40px;
+}
+.SignUp .Container label {
+    margin: 15px 0;
+}
+.SignUp .Container input {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+.SignUp .Container button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: brown;
+    margin: 15px 0;
+}

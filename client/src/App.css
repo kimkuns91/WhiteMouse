@@ -1,6 +1,6 @@
 .App {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #010409;
 }
 .Wrap {
@@ -12,6 +12,7 @@
 }
 .Container {
   padding: 80px 0;
+  min-height: calc(100vh - 146px);
 }
 button {
   cursor: pointer;
@@ -31,6 +32,12 @@ a:hover {
   /* opacity: 0.7; */
   transition: all 0.3s;
   color: #FFD400;
+}
+select:focus {
+  outline: none;
+}
+input:focus {
+  outline: none;
 }
 .Title01 {
   color: #FFF;
@@ -55,4 +62,13 @@ a:hover {
 .Text03 {
   color: #FFF;
   font-size: 12px;
+}
+.White {
+  color: #FFF;
+}
+.Gray {
+  color: #EDEDED;
+}
+.Bold {
+  font-weight: 600;
 }

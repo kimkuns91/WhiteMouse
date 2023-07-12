@@ -1,8 +1,26 @@
 import CatFrame from '../../components/CatFrame/CatFrame'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Board.css'
+import { useEffect, useState } from 'react'
+import { loadBoard } from '../../service/boardService'
+import Loading from '../../components/Loading/Loading'
 
 const Board = ()=>{
+    const [ data, setData ] = useState([])
+    console.log(data)
+    const navigate = useNavigate()
+    const writeBtn = ()=>{
+        navigate('/board/write')
+    }
+    useEffect(()=>{
+        loadBoard()
+            .then(response => {
+                setData(response.data)
+            })
+            .catch(err =>
+                console.log(err.message.message)    
+            )
+    }, [])
     return(
         <div className='Board'>
             <div className='Container Wrap'>
@@ -22,24 +40,36 @@ const Board = ()=>{
                             <p>날짜</p>
                         </div>
                     </div>
-                    <div className='PostBody'>
-                        <div className='PostHead01'>
-                            <p>JavaScript</p>
-                        </div>
-                        <div className='PostHead02'>
-                            <Link>
-                                <p>Nodejs로 홈페이지 만들기</p>
-                            </Link>
-                        </div>
-                        <div className='PostHead03'>
-                            <p>김건우</p>
-                        </div>
-                        <div className='PostHead04'>
-                            <p>23.07.11</p>
-                        </div>
-                    </div>
+                    {
+                        !data
+                        ? <Loading />
+                        :
+                        <>
+                            {
+                                data.map((a, i) => 
+                                    <div className='PostBody' key={ i }>
+                                        <div className='PostHead01'>
+                                            <p>{ a.category }</p>
+                                        </div>
+                                        <div className='PostHead02'>
+                                            <Link to={`/board/${ a._id }`}>
+                                                <p>{ a.title }</p>
+                                            </Link>
+                                        </div>
+                                        <div className='PostHead03'>
+                                            <p>{ a.name }</p>
+                                        </div>
+                                        <div className='PostHead04'>
+                                            <p>{ a.createdAt }</p>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </>
+                       
+                    }
                 </div>
-                <button className='WriteBtn'>글쓰기</button>
+                <button className='WriteBtn' onClick={ writeBtn }>글쓰기</button>
             </div>
         </div>
     )
