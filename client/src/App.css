@@ -1,0 +1,58 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #010409;
+}
+.Wrap {
+  width: 100%;
+  max-width: 880px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.Container {
+  padding: 80px 0;
+}
+button {
+  cursor: pointer;
+  color: #FFF;
+}
+button:hover {
+  /* opacity: 0.7; */
+  transition: all 0.3s;
+  color: #FFD400;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFF;
+}
+a:hover {
+  /* opacity: 0.7; */
+  transition: all 0.3s;
+  color: #FFD400;
+}
+.Title01 {
+  color: #FFF;
+  font-size: 28px;
+}
+.Title02 {
+  color: #FFF;
+  font-size: 24px;
+}
+.Title03 {
+  color: #FFF;
+  font-size: 20px;
+}
+.Text01 {
+  color: #FFF;
+  font-size: 16px;
+}
+.Text02 {
+  color: #FFF;
+  font-size: 14px;
+}
+.Text03 {
+  color: #FFF;
+  font-size: 12px;
+}

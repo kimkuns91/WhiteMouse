@@ -1,0 +1,42 @@
+.PostList {
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+}
+
+.PostHead {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid #EDEDED;
+    background-color: #936324;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.PostHead01 {
+    width: 20%;
+}
+.PostHead02 {
+    width: 40%;
+}
+.PostHead03 {
+    width: 20%;
+}
+.PostHead04 {
+    width: 20%;
+}
+.PostBody {
+    display: flex;
+    text-align: center;
+    background-color: 1px solid #777;
+    color: #FFF;
+    border-bottom: 1px solid #EDEDED;
+}
+.WriteBtn {
+    margin-top: 30px;
+    float: right;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #936324;
+}

@@ -1,0 +1,53 @@
+.Login {
+    width: 100%;
+    height: calc(100vh - 160px);
+    background-color: #010409;
+    box-sizing: border-box;
+}
+
+.LoginInput {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    background-image: url('../../assets/images/loginBg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 30px;
+}
+
+.LoginInput label{
+    font-size: 20px;
+    font-weight: 600;
+    color: #75481F;
+    margin: 20px 0;
+}
+.LoginInput label:first-child{
+    margin-top: 70px;
+}
+.LoginInput input{
+    max-width: 350px;
+    width: 100%;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #75481F;
+}
+.LoginInput button {
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 350px;
+    width: 100%;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #FFF;
+    background-color: #75481F;
+    border: 1px solid #75481F;
+    margin-top: 40px;
+}

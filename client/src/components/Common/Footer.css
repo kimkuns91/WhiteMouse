@@ -1,0 +1,9 @@
+#Footer {
+    width: 100%;
+    border-top: 1px solid #363636;
+    background-color: #161B22;
+    padding: 30px 0;
+}
+#Footer .container {
+    text-align: center;
+}
