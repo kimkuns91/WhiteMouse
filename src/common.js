@@ -4,6 +4,7 @@ const MONGO_USER = process.env.MONGO_USER || 'kimkuns'
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'rlawldi98'
 const MONGO_CLUSTER = process.env.MONGO_CLUSTER || 'cluster0.qtkzt.mongodb.net'
 const MONGO_DBNAME = process.env.MONGO_DBNAME || 'WhiteMouse'
+const GITHUB_ACEES_TOKEN = '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'
 /* eslint-disable prefer-destructuring */
 
 const APP_CONFIG_JSON = JSON.stringify({
