@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*"
-  ],
+, "client/build"  ],
   "exclude": [
     "node_modules"
   ]

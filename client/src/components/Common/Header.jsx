@@ -21,6 +21,7 @@ const Header = ({ isLogined })=>{
                     <Link to='/about' className='Menu'>About</Link>
                     <Link to='/board' className='Menu'>Board</Link>
                     <Link to='/video' className='Menu'>Video</Link>
+                    <Link to='/chat' className='Menu'>Chat</Link>
                 </div>
 
                 { 

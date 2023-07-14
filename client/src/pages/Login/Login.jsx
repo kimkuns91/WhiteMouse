@@ -24,7 +24,7 @@ const Login = ()=>{
         signInUser({ id, password })
         .then(response => {
             if(response.data.message === 'Success'){
-                dispatch(login({ isLogined : true }))
+                // dispatch(login({ isLogined : true }))
                 navigate('/')
             }
         })

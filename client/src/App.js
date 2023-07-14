@@ -13,11 +13,12 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import BoardView from './pages/BoardView/BoardView';
 import SignUp from './pages/SignUp/SignUp';
+import Chat from './pages/Chat/Chat';
 
 function App() {
   const isLogined = useSelector((state) => state.user.value.isLogined)
-  console.log(isLogined)
   const [ writeMode, setWriteMode ] = useState(false)
+  
   return (
     <div className="App">
       {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/board/:postId' element={<BoardView />} />
         <Route path='/video' element={<Video />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/chat' element={<Chat />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
       {

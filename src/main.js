@@ -2,15 +2,17 @@
 
 require('dotenv').config()
 
-const app = require('./app')
+const app = require('./app');
+const { chat } = require('./chat');
 
 const { PORT } = require('./common')
 const mongo = require('./mongo');
 
+
 mongo.connectToDatabase()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`App listening at http://localhost:${PORT}`);
+      console.log(`App listening at ${PORT}`);
     }) 
   })
   .catch(error => {
@@ -18,3 +20,4 @@ mongo.connectToDatabase()
     throw error;
   });
 
+chat()
