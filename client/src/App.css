@@ -72,3 +72,15 @@ input:focus {
 .Bold {
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .Wrap {
+    width: 100%;
+    max-width: 880px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1024px) {
+  
+}

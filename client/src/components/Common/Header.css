@@ -26,3 +26,26 @@
     background-color: inherit;
     border: none;
 }
+.MobileHeader {
+    display: none;
+}
+@media (max-width : 768px) {
+    .WebHeader {
+        display: none !important;
+    }
+    .MobileMenu {
+        color: #8a8a8a;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    .MobileHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+}

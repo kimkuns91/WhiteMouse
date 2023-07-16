@@ -57,7 +57,7 @@ const ChatRoom = ({ roomId })=>{
         socket.on("message", (message) => {
             console.log(message)
             // setMessages(message)
-        //   setMessages((prevMessages) => [...prevMessages, message]);
+            // setMessages((prevMessages) => [...prevMessages, message]);
         });
     
         return () => {
@@ -76,7 +76,7 @@ const ChatRoom = ({ roomId })=>{
     };
     return(
         <div className="ChatRoom">
-            <div className="ChatContent">
+            {/* <div className="ChatContent">
                 <ul>
                     {
                         messages.map((message, index) => (
@@ -94,7 +94,7 @@ const ChatRoom = ({ roomId })=>{
                     />
                     <button type="submit">보내기</button>
                 </div>
-            </form>
+            </form> */}
         </div>
     )
 }

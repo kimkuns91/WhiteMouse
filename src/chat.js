@@ -14,24 +14,28 @@ const { CHAT_PORT } = require('./common')
 const chat = async () => {
     // @ts-ignore
     const io = require('socket.io')(http, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-    }
+        cors: {
+            origin: "*",
+            methods: ["GET", "POST"]
+        }
     });
 
     const chatRooms = await ChatRoom.find({})
     // @ts-ignore
     io.on('connection', (socket) => {
+        console.log('새로운 사용자가 연결되었습니다.');
+
         socket.on("getChatRooms", () => {
             socket.emit("chatRooms", chatRooms);
         });
 
         // @ts-ignore
         socket.on("joinRoom", async (roomId) => {
+            console.log('방 입장')
             socket.join(roomId);
             const roomMessages = await ChatMessage.find({})
-            // io.emit('message')
+            console.log(roomMessages)
+            io.emit('message', roomMessages)
         });
 
         socket.on("sendMessage", async ({ roomId, message }) => {

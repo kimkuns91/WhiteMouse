@@ -14,18 +14,21 @@ import { useSelector } from 'react-redux'
 import BoardView from './pages/BoardView/BoardView';
 import SignUp from './pages/SignUp/SignUp';
 import Chat from './pages/Chat/Chat';
+import SideBar from './components/SideBar/SideBar';
 
 function App() {
   const isLogined = useSelector((state) => state.user.value.isLogined)
   const [ writeMode, setWriteMode ] = useState(false)
-  
+  const [ sideBar, setSideBar ] = useState(false)
+
   return (
     <div className="App">
       {
         !writeMode
-        ? <Header isLogined={ isLogined }/>
+        ? <Header isLogined={ isLogined } setSideBar={ setSideBar }/>
         : null
       }
+      <SideBar sideBar={ sideBar } setSideBar={ setSideBar }/>
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/about' element={<About />} />
