@@ -35,3 +35,6 @@ export const deleteUser = ({ postId }) => {
 export const checkUnique = ({ id }) => {
   return axios.post(`${baseUrl}/user/unique`, { id });
 };
+export const fetchUserInfo = ({ id }) => {
+  return axios.post(`${baseUrl}/user/info`, { id });
+};

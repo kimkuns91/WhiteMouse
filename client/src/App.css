@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   width: 100%;
   /* min-height: 100vh; */
@@ -33,6 +38,9 @@ a:hover {
   transition: all 0.3s;
   color: #FFD400;
 }
+p {
+  margin: 0;
+}
 select:focus {
   outline: none;
 }
@@ -40,27 +48,27 @@ input:focus {
   outline: none;
 }
 .Title01 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 28px;
 }
 .Title02 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 24px;
 }
 .Title03 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 20px;
 }
 .Text01 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 16px;
 }
 .Text02 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 14px;
 }
 .Text03 {
-  color: #FFF;
+  color: #d1d4dc;
   font-size: 12px;
 }
 .White {
@@ -71,6 +79,9 @@ input:focus {
 }
 .Bold {
   font-weight: 600;
+}
+.Strong {
+  color: #FDA350;
 }
 @media (max-width: 768px) {
   .Wrap {

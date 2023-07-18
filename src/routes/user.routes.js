@@ -10,5 +10,6 @@ router.post("/read", controller.read);
 router.put("/", controller.update);
 router.delete("/", controller.delete);
 router.post("/unique", controller.unique);
+router.post("/info", controller.info);
 
 module.exports = router;

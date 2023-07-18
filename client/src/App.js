@@ -17,6 +17,7 @@ import Chat from './pages/Chat/Chat';
 import SideBar from './components/SideBar/SideBar';
 
 function App() {
+  const userInfo = useSelector((state) => state.user.value)
   const isLogined = useSelector((state) => state.user.value.isLogined)
   const [ writeMode, setWriteMode ] = useState(false)
   const [ sideBar, setSideBar ] = useState(false)
@@ -37,7 +38,7 @@ function App() {
         <Route path='/board/:postId' element={<BoardView />} />
         <Route path='/video' element={<Video />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/chat' element={<Chat userInfo={ userInfo }/>} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
       {

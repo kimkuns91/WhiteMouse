@@ -7,7 +7,6 @@ import './Chat.css'
 
 import CatProfile from '../../assets/images/CatProfile.png'
 import MouseProfile from '../../assets/images/MouseProfile.png'
-import { fetchUserInfo } from "../../service/userService";
 
 const socket = io('http://localhost:8081');
 
@@ -21,9 +20,6 @@ const Chat = ({ userInfo }) => {
     };
 
     useEffect(() => {     
-        fetchUserInfo({ id: userInfo.id }).then(result =>
-            console.log(result.data)        
-        )
         socket.emit("getChatRooms");
         socket.on("chatRooms", (rooms) => {
             setChatRooms(rooms);
@@ -101,50 +97,40 @@ const ChatRoomLists = ({ chatRooms, chatRoomLists, handleRoomClick })=>{
         </div>  
     )
 }
-
 const ChatRoom = ({ roomId, chatRoomLists, setChatRoomLists, userInfo })=>{
     const [ messages, setMessages ] = useState([]);
-    const [ input, setInput ] = useState("");
-    const [ loading, setLoading ] = useState(true);
+    const [ newMessage, setNewMessage ] = useState("");
     const { id, nickname } = userInfo
     const messageEndRef = useRef()
-
+    console.log(messages)
+    // console.log(messages)
     useEffect(() => {
         socket.emit("joinRoom", roomId);
-
-        socket.on('message', (roomMessages)=>{
+        socket.on("chatHistory", (roomMessages)=>{
             setMessages(roomMessages)
         });
-        setLoading(false)
+
         return () => {
           socket.emit("leaveRoom", roomId);
           socket.off("message");
         };
     }, [roomId]);
 
-    useEffect(() => {
-        // 채팅 메시지 수신
-        socket.on('chat message', async (message) => {
-            await setMessages((prevMessages) => [...prevMessages, message])
-        });
-        if(!loading){
-            messageEndRef.current.scrollIntoView();
-        }
-        return () => {
-            // 컴포넌트 언마운트 시 소켓 이벤트 핸들러 제거
-            socket.off('chat message');
-        };
-      }, [messages]);
+    useEffect(()=>{
+        socket.on("message", (message)=>{
+            setMessages([
+                ...messages, 
+                message
+            ])
+            // messageEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        })
+    },[messages])
 
-    const sendMessage = (e) => {
+    const handleMessageSubmit = (e) => {
         e.preventDefault();
-        if (input) {
-            socket.emit('chat message', {
-                roomId, 
-                chat : input, 
-                user: id
-            });
-            setInput('');
+        if (newMessage.trim() !== "") {
+            socket.emit("sendMessage", { roomId, message: newMessage, user: id });
+            setNewMessage("");
         }
     };
 
@@ -167,45 +153,47 @@ const ChatRoom = ({ roomId, chatRoomLists, setChatRoomLists, userInfo })=>{
                 }
             </button>
             <div className="ChatContentWrap">
-            {
-                messages.map((message, index) =>                     
-                    <div key={index}>
-                        {
-                            message.user !== id
-                            ?                      
-                            <div className="ChatContent ChatContentLeft" key={index}>
-                                <div className="ProfileImg ProfileImgLeft">
-                                    <img src={ CatProfile } alt="CatProfile" />
-                                </div>
-                                <p>{ message.chat }</p>
-                            </div>
-                            : 
-                            <div className="ChatContent ChatContentRight" key={index}>
-                                <p>{ message.chat }</p>
-                                <div className="ProfileImg ProfileImgRight">
-                                    <img src={ MouseProfile } alt="CatProfile" />
-                                </div>
-                            </div>
-                        }
-                        <div ref={ messageEndRef }></div>
-                    </div>
-                )
-            }
+                {
+                    messages.map((message, index) => (
+                        <p key={index} className="Text01">{ message.chat }</p>
+                    )
+                    // <div key={index}>
+                    //     {
+                    //         message.user !== id
+                    //         ?                      
+                    //         <div className="ChatContent ChatContentLeft" key={index}>
+                    //             <div className="ProfileImg ProfileImgLeft">
+                    //                 <img src={ CatProfile } alt="CatProfile" />
+                    //             </div>
+                    //             <p>{ message.chat }</p>
+                    //         </div>
+                    //         : 
+                    //         <div className="ChatContent ChatContentRight" key={index}>
+                    //             <p>{ message.chat }</p>
+                    //             <div className="ProfileImg ProfileImgRight">
+                    //                 <img src={ MouseProfile } alt="CatProfile" />
+                    //             </div>
+                    //         </div>
+                    //     }
+                    //     <div ref={ messageEndRef }></div>
+                    // </div>
+                    )
+                }
             </div>
-            <div className="ChatInputWrap">
+            <div className="ChatInputWrap" onSubmit={handleMessageSubmit}>
                 <input 
                         className="Text02"
                         placeholder="메세지를 입력하세요"
                         type="text"
-                        value={ input }
-                        onChange={(e) => setInput(e.target.value)}
+                        value={newMessage}
+                        onChange={(e) => setNewMessage(e.target.value)}
                         onKeyDown={(e)=>{
                             if(e.key === "Enter") {
-                                sendMessage(e)
+                                handleMessageSubmit(e)
                             }
                         }}
                 />
-                <button onClick={ sendMessage }>
+                <button onClick={ handleMessageSubmit }>
                     <FontAwesomeIcon className="Text02" icon={ faPaperPlane } />
                 </button>
             </div>

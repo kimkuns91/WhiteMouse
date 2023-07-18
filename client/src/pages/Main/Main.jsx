@@ -1,10 +1,25 @@
+import Introduce from '../../components/Introduce/Introduce'
+import Profile from '../../components/Profile/Profile'
+import Search from '../../components/Search/Search'
 import './Main.css'
+
+// images
+import NodeJSIcon from '../../assets/images/nodejs_2.png'
+import JavascriptIcon from '../../assets/images/Javascript.png'
+import ReduxIcon from '../../assets/images/Redux.png'
+import ReactIcon from '../../assets/images/React.png'
+
 
 const Main = ()=>{
     return(
         <div className='Main'>
             <Section01 />
             <Section02 />
+            <Section03 />
+            <div className='Wrap'>
+                <h3 className='Title02'>The Programming Language of the Universe</h3>
+            </div>
+            <Section04 />
         </div>
     )
 }
@@ -30,7 +45,31 @@ const Section01 = ()=>{
 const Section02 = ()=>{
     return(
         <div className='Section02'>
-
+            <Search />
+        </div>
+    )
+}
+const Section03 = ()=>{
+    return(
+        <div className='Section03 Wrap'>
+            <div>
+                <Profile />
+            </div>
+            <div>
+                <Introduce />
+            </div>
+        </div>
+    )
+}
+const Section04 = ()=>{
+    return(
+        <div className='Section04'>
+            <div className='Wrap'>
+                <img className='Planet NodeJSIcon' src={ NodeJSIcon } alt="" />
+                <img className='Planet ReactIcon' src={ ReactIcon } alt="" />
+                <img className='Planet JavascriptIcon' src={ JavascriptIcon } alt="" />
+                <img className='Planet ReduxIcon' src={ ReduxIcon } alt="" />
+            </div>
         </div>
     )
 }

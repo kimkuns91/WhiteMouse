@@ -24,7 +24,12 @@ const Login = ()=>{
         signInUser({ id, password })
         .then(response => {
             if(response.data.message === 'Success'){
-                // dispatch(login({ isLogined : true }))
+                const { id, nickname } = response.data
+                dispatch(login({
+                    id,
+                    nickname,
+                    isLogined : true 
+                }))
                 navigate('/')
             }
         })
@@ -40,7 +45,7 @@ const Login = ()=>{
                     <label htmlFor="id">아이디</label>
                     <input type="text" onChange={ handleInput } name='id' />
                     <label htmlFor="password">비밀번호</label>
-                    <input type="text" onChange={ handleInput } name='password'/>
+                    <input type="password" onChange={ handleInput } name='password'/>
                     <button onClick={ LoginBtn }>로그인</button>
                 </div>
             </div>

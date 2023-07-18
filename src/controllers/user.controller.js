@@ -14,7 +14,10 @@ exports.signin = async (req, res) => {
             if(result.password !== password ){
                 return res.status(404).json('비밀번호 오류')
             }
+            const { id, nickname } = result
             return res.status(200).json({
+                id,
+                nickname,
                 message : "Success"
             })
         })
@@ -91,6 +94,22 @@ exports.unique = async (req, res) => {
             if(result){
                 return res.status(200).json({ message : '중복된 아이디입니다.'})
             } 
+        })
+        .catch((err)=>{
+            res.json(err)
+        })
+}
+exports.info = async (req, res) => {
+    const { id } = req.body
+    await User.findOne({ id })
+        .then(result =>{
+            const dataWithoutPassword = { ...result }
+            delete dataWithoutPassword.password;
+
+            console.log(dataWithoutPassword)
+            // const { password, ...dataWithoutPassword } = result
+            // console.log(dataWithoutPassword)
+            // return res.status(200).json(dataWithoutPassword)
         })
         .catch((err)=>{
             res.json(err)

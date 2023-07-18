@@ -1,0 +1,25 @@
+.Search {
+    width: 100%;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+.Search .Wrap{
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+.SearchInput {
+    width: calc(100% - 50px);
+    padding: 30px 25px;
+    box-sizing: border-box;
+    border: none;
+    background-color: inherit;
+}
+.SearchBtn {
+    width: 50px;
+    box-sizing: border-box;
+    border: none;
+    background-color: inherit;
+}

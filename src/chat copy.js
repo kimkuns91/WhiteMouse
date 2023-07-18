@@ -8,7 +8,6 @@ const {
     chatMessage : ChatMessage 
 } = db;
 
-const ObjectId = require("mongoose").Types.ObjectId;
 const { CHAT_PORT } = require('./common')
 
 
@@ -24,7 +23,7 @@ const chat = async () => {
     const chatRooms = await ChatRoom.find({})
     // @ts-ignore
     io.on('connection', (socket) => {
-        // console.log('새로운 사용자가 연결되었습니다.');
+        console.log('새로운 사용자가 연결되었습니다.');
 
         socket.on("getChatRooms", () => {
             socket.emit("chatRooms", chatRooms);
@@ -32,28 +31,37 @@ const chat = async () => {
 
         // @ts-ignore
         socket.on("joinRoom", async (roomId) => {
+            console.log('방 입장')
             socket.join(roomId);
-            let o_id = new ObjectId(roomId);
-            const roomMessages = await ChatMessage.find({
-                room : o_id
-            })
+            const roomMessages = await ChatMessage.find({})
+            console.log(roomMessages)
             io.emit('message', roomMessages)
         });
 
-        socket.on('chat message', async (message) => {
-            const { roomId, chat, user } = message
+        socket.on("sendMessage", async ({ roomId, message, user }) => {
+            io.to(roomId).emit("message", message);
             const chatMessage = new ChatMessage({
                 room : roomId,
                 user : user,
-                chat : chat,
+                chat : message,
                 createdAt : moment().format("YYYY-MM-DD hh:mm:ss")
             })
+            console.log(chatMessage)
             await chatMessage.save()
-            // 모든 클라이언트에게 채팅 메시지 전송
-            io.to(roomId).emit('chat message', message);
         });
 
-          
+        // socket.on("newMessage", async ({ roomId, message, user }) => {
+        //     io.to(roomId).emit("message", message);
+        //     const chatMessage = new ChatMessage({
+        //         room : roomId,
+        //         user : user,
+        //         chat : message,
+        //         createdAt : moment().format("YYYY-MM-DD hh:mm:ss")
+        //     })
+        //     console.log(chatMessage)
+        //     await chatMessage.save()
+        // });
+
         socket.on("leaveRoom", (roomId) => {
             socket.leave(roomId);
         });

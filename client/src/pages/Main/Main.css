@@ -54,11 +54,70 @@
 .parallax > use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s;
-    fill : #202124;
+    fill : #000;
     transition : fill 1s;
 }
 
-
+.Section03 {
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.Section03 > div {
+    width: calc(50% - 10px);
+}
+.Section04 {
+    width: 100%;
+    height: 600px;
+    background-image: url('../../assets/images/Universe.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.Section04::after{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: linear-gradient(#010409,rgba(1, 4, 9, 0.45), rgba(255, 145, 0, 0.05), rgba(1, 4, 9, 0.65), #010409);
+}
+.Section04 .Wrap {
+    position: relative;
+}
+.Section04 .Planet {
+    position: absolute;
+    /* top: 150px;
+    left: 30px; */
+    width: 80px;
+    /* height: 80px; */
+    /* border-radius: 50%; */
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.6s ease-in-out;
+}
+.Section04 .Planet:hover {
+    scale: 1.1;
+}
+.NodeJSIcon {
+    top: 150px;
+    left: 30px;
+}
+.ReactIcon {
+    top: 350px;
+    left: 300px;
+}
+.JavascriptIcon {
+    top: 300px;
+    right: 40px;
+}
+.ReduxIcon {
+    top: 200px;
+    left: 430px;
+}
 @keyframes move-forever {
     0% {
         transform: translate3d(-90px, 0, 0);

@@ -1,0 +1,74 @@
+.Introduce {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #424242;
+}
+.Introduce .ControlBar {
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+.Introduce .ControlBar > div {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-top: 1px solid #424242;
+    background-color: #161616;
+}
+.Introduce .Contents {
+    min-height: 200px;
+}
+.Active {
+    background-color: #424242 !important;
+}
+.Introduce .newsLists {
+    padding-top: 30px;
+}
+.Introduce .recordLists {
+    padding: 15px 0;
+}
+.Introduce .newsList {
+    width: 100%;
+    text-align: left;
+    margin: 15px 0;
+}
+.Introduce .newsHead {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+}
+.Introduce .newsHead p {
+    margin-right: 5px;
+    color: #9D9D9D;
+}
+.Introduce .newsBody {
+    color: #000000;
+    cursor: pointer;
+}
+.Introduce .newsBody:hover {
+    color: #FF720A;
+}
+.Introduce .recordList {
+    display: flex;
+    margin: 15px 0;
+
+}
+.Introduce .recordYear {
+    margin-right: 10px;
+}
+
+.moreBtn {
+    color: #424242;
+    position: absolute;
+    bottom: 7px;
+    right: 10px;
+    cursor: pointer;
+}
+.closeBtn {
+    color: #424242;
+    position: absolute;
+    bottom: 7px;
+    right: 10px;
+    cursor: pointer;
+}

@@ -1,7 +1,8 @@
 #Header {
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid #363636;
+    /* border-bottom: 1px solid #363636; */
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
 }
 #Header .Wrap{
     height: 100%;

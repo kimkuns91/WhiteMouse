@@ -1,4 +1,4 @@
-// const baseUrl = '/api';
-const baseUrl = 'http://localhost:3000/api';
+const baseUrl = '/api';
+// const baseUrl = 'http://localhost:8080/api';
 
 export default baseUrl;
