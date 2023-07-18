@@ -1,6 +1,6 @@
 const HOST = 'whitemouse.dev'
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3000
 const CHAT_PORT = process.env.CHAT_PORT || 8081
 const MONGO_USER = process.env.MONGO_USER || 'kimkuns'
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'rlawldi98'
