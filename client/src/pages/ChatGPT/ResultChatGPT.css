@@ -1,0 +1,77 @@
+.ResultChatGPT {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #202124;
+}
+.ResultHeader {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #3c4043;
+}
+.GoogleSmall {
+    width: 92px;
+}
+.ResultInputWrap {
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 50px;
+    padding: 0 25px;
+    background-color: #303134;
+    border-radius: 25px;
+    border: none;
+    box-sizing: border-box;
+}
+.ResultInputWrap input {
+    width: 500px;
+    color: #FFF;
+    border: none;
+    background-color: inherit;
+}
+.GoogleAsset03 {
+    height: 30px;
+}
+.ResultBody {
+    max-width: 600px;
+    margin-left: 180px;
+}
+.FakeText {
+    font-size: 14px;
+    color: #9aa0a6;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.ResultListHead {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.FakeIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    border-color: #FFF;
+}
+.ResultListHeadText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+    color: #FFF;
+    font-size: 12px;
+}
+.ResultListTitle {
+    display: block;
+    margin-top: 10px;
+    color: #C58AF9;
+    font-size: 20px;
+}
+.ResultListContent {
+    line-height: 1.5em;
+    margin-top: 10px;
+    color: #bdc1c6;
+    font-size: 14px;
+}

@@ -15,6 +15,9 @@ import BoardView from './pages/BoardView/BoardView';
 import SignUp from './pages/SignUp/SignUp';
 import Chat from './pages/Chat/Chat';
 import SideBar from './components/SideBar/SideBar';
+import ChatGPT from './pages/ChatGPT/ChatGPT';
+import ResultChatGPT from './pages/ChatGPT/ResultChatGPT';
+import BoardChatGPT from './pages/ChatGPT/BoardChatGPT';
 
 function App() {
   const userInfo = useSelector((state) => state.user.value)
@@ -39,6 +42,9 @@ function App() {
         <Route path='/video' element={<Video />} />
         <Route path='/login' element={<Login />} />
         <Route path='/chat' element={<Chat userInfo={ userInfo }/>} />
+        <Route path='/chatgpt' element={<ChatGPT />} />
+        <Route path='/chatgpt/result' element={<ResultChatGPT />} />
+        <Route path='/chatgpt/board' element={<BoardChatGPT />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
       {
