@@ -5,7 +5,7 @@ const BoardChatGPT = ()=>{
     const { state } = useLocation();
     const [ content, setContent ] = useState('');
     useEffect(()=>{
-        setContent(state)
+        setContent(state.content)
     }, [])
     return(
         <div className="ChatGPT">
