@@ -44,6 +44,9 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
+.ResultList {
+    margin: 30px 0;
+}
 .ResultListHead {
     display: flex;
     align-items: center;
@@ -68,6 +71,7 @@
     margin-top: 10px;
     color: #C58AF9;
     font-size: 20px;
+    cursor: pointer;
 }
 .ResultListContent {
     line-height: 1.5em;

@@ -9,9 +9,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
 }
 .GoogleLogo {
+    margin-top: 300px;
     filter: brightness(0) invert(1);
 }
 .GoogleInputWrap {
