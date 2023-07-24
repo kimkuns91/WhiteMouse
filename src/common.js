@@ -6,8 +6,8 @@ const MONGO_USER = process.env.MONGO_USER || 'kimkuns'
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'rlawldi98'
 const MONGO_CLUSTER = process.env.MONGO_CLUSTER || 'cluster0.qtkzt.mongodb.net'
 const MONGO_DBNAME = process.env.MONGO_DBNAME || 'WhiteMouse'
-const GITHUB_ACEES_TOKEN = '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'
-const CHATGPT_API_KEY = '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'
+const GITHUB_ACCESS_TOKEN = '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'
+const CHATGPT_API_KEY = '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'
 /* eslint-disable prefer-destructuring */
 
 /** @type {string} */

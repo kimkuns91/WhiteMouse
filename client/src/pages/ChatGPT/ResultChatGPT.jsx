@@ -12,6 +12,7 @@ const ResultChatGPT = ()=>{
     const keyword = searchParams.get('keyword');
     const [ dummyData, setDummyData ] = useState([])
     const [ fetchData, setFetchData ] = useState()
+    const [ loading, setLoading ] = useState(false)
     useState(()=>{
         const data = [{
             source : 'namu.wiki',
@@ -77,13 +78,33 @@ const ResultChatGPT = ()=>{
         setDummyData(data)
     }, [keyword])
     useState(()=>{
+        setLoading(true)
         chatAi({ chat : keyword })
             .then(result=>{
                 setFetchData(result.data)
+                setLoading(false)
             })
     }, [])
+
     const LinkBtn = ()=>{
-        navigate('/chatgpt/board', { state : fetchData })
+        const checkLoading = ()=>{
+            if(loading){
+                return true
+            }
+            if(!loading){
+                return false
+            }
+        }
+        if(loading){
+            const intervalId = setInterval(checkLoading(), 1000);
+            console.log(checkLoading())
+            if(!intervalId){
+                return navigate('/chatgpt/board', { state : fetchData })
+            }
+        }
+        // if(!loading){
+        //     return navigate('/chatgpt/board', { state : fetchData })
+        // }
     }
     return(
         <div className="ResultChatGPT">

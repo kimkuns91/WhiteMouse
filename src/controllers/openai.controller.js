@@ -7,9 +7,7 @@ const configuration = new Configuration({
 })
 
 exports.chatAi = async (req, res) => {
-
     const { chat } = req.body
-    console.log(chat)
     const openai = new OpenAIApi(configuration)
     
     await openai.createChatCompletion({
@@ -21,7 +19,7 @@ exports.chatAi = async (req, res) => {
     })
     .then(result => {
         console.log(result.data.choices[0].message)
-        // res.json(result.data.choices[0].message)
+        res.json(result.data.choices[0].message)
     }
     ).catch(err => console.error('Error calling ChatGPT API:', err))
 }

@@ -3,18 +3,19 @@ import { useLocation } from "react-router";
 
 const BoardChatGPT = ()=>{
     const { state } = useLocation();
-    const [ content, setContent ] = useState('');
+    const [ content, setContent ] = useState();
     useEffect(()=>{
-        setContent(state.content)
+        setContent(state)
+        console.log(state)
     }, [])
     return(
         <div className="ChatGPT">
             <div className="Wrap Container">
                 <div className="Title01">
-                { !content
-                    ? null
-                    : 
-                    <p className="Title01">{ content }</p>
+                { 
+                    !content
+                    ? <p>Loading</p>
+                    : <p className="Title01">{ content.content }</p>
                 }
                 </div>
             </div>
