@@ -29,9 +29,8 @@ const WebHeader = ({ logoutBtn, isLogined })=>{
             <div>
                 <Link to='/about' className='Menu'>About</Link>
                 <Link to='/board' className='Menu'>Board</Link>
+                <Link to='/projects' className='Menu'>Projects</Link>
                 <Link to='/video' className='Menu'>Video</Link>
-                <Link to='/chat' className='Menu'>Chat</Link>
-                <Link to='/chatgpt' className='Menu'>Geegle</Link>
             </div>
 
             { 

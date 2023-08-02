@@ -1,0 +1,67 @@
+.WebRTC {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.VideoWrap {
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+}
+.VideoWrapActive {
+    width: calc(100% - 350px);
+}
+.VideoMode {
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+.PresenterWrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.WebRTC .VideoLists {
+    width: 100%;
+    height: 250px;
+    background-color: pink;
+}
+.WebRTC .VideoSection {
+    width: 100%;
+    height: calc(100vh - 350px);
+    background-color: #353535;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.WebRTC .VideoSection video {
+    height: 100%;
+    /* object-fit: cover; */
+}
+.WebRTC .ControlBar {
+    width: 100%;
+    height: 100px;
+    background-color: #353535;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.WebRTC .ControlBtn {
+    width: 100px;
+    height: 100px;
+    margin: 0 20px;
+    border: none;
+    background-color: #353535;
+}
+.WebRTC .ChatWrap {
+    position: absolute;
+    width: 350px;
+    height: 100vh;
+    top: 0;
+    right: -350px;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+.WebRTC .ChatActive {
+    right: 0px;
+}

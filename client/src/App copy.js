@@ -21,37 +21,47 @@ import BoardChatGPT from './pages/ChatGPT/BoardChatGPT';
 import WebRTC from './pages/WebRTC/WebRTC';
 import Layout from './pages/Layout/Layout';
 import Hide from './pages/Layout/Hide';
-import Projects from './pages/Projects/Projects';
 
 function App() {
   const userInfo = useSelector((state) => state.user.value)
   const isLogined = useSelector((state) => state.user.value.isLogined)
+  const [ writeMode, setWriteMode ] = useState(false)
   const [ sideBar, setSideBar ] = useState(false)
 
   return (
     <div className="App">
+      {
+        !writeMode
+        ? <Header isLogined={ isLogined } setSideBar={ setSideBar }/>
+        : null
+      }
       <SideBar sideBar={ sideBar } setSideBar={ setSideBar }/>
-      <Routes>   
-        <Route path='/' element={<Layout />}>
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/board' element={<Board />} />
+        <Route path='/board/write' element={<BoardWrite writeMode={ writeMode } setWriteMode={ setWriteMode }/>} />
+        <Route path='/board/:postId' element={<BoardView />} />
+        <Route path='/video' element={<Video />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/chat' element={<Chat userInfo={ userInfo }/>} />
+        <Route path='/chatgpt' element={<ChatGPT />} />
+        <Route path='/chatgpt/result' element={<ResultChatGPT />} />
+        <Route path='/chatgpt/board' element={<BoardChatGPT />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/webrtc' element={<WebRTC />} />
+        <Route path='/layout' element={<Layout />}>
           <Route path='' element={<Main />} />
-          <Route path='about' element={<About />} />
-          <Route path='board' element={<Board />} />
-          <Route path='board/:postId' element={<BoardView />} />
-          <Route path='video' element={<Video />} />
-          <Route path='login' element={<Login />} />
-          <Route path='signup' element={<SignUp />} />
-          <Route path='projects' element={<Projects />} />
         </Route>
-
-        <Route path='/project' element={<Hide />}>
-          <Route path='write' element={<BoardWrite />} />
-          <Route path='webrtc' element={<WebRTC />} />
-          <Route path='chat' element={<Chat userInfo={ userInfo }/>} />
-          <Route path='chatgpt' element={<ChatGPT />} />
-          <Route path='chatgpt/result' element={<ResultChatGPT />} />
-          <Route path='chatgpt/board' element={<BoardChatGPT />} />
+        <Route path='/hide' element={<Hide />}>
+          <Route path='board' element={<Board />} />
         </Route>
       </Routes>
+      {
+        !writeMode
+        ? <Footer />
+        : null
+      }
     </div>
   );
 }

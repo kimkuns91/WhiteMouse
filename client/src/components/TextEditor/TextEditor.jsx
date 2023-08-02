@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import './TextEditor.css'
 import { useNavigate } from 'react-router-dom';
 
-const TextEditor = ({ title, setCategory, setTitle, content, setContent, setWriteMode, writeEndBtn })=>{
+const TextEditor = ({ title, setCategory, setTitle, content, setContent, writeEndBtn })=>{
     const quillRef = useRef()
     const navigate = useNavigate()
     const modules = useMemo(() => {
@@ -48,7 +48,6 @@ const TextEditor = ({ title, setCategory, setTitle, content, setContent, setWrit
     };
     const writeCancelBtn = ()=>{
         navigate('/board')
-        setWriteMode(false)
     }
     return (
       <div className='TextEditorWrap'> 

@@ -2,11 +2,12 @@ const HOST = 'whitemouse.dev'
 
 const PORT = process.env.PORT || 8080
 const CHAT_PORT = process.env.CHAT_PORT || 8081
+const SOCKET_PORT = process.env.SOCKET_PORT || 8081
 const MONGO_USER = process.env.MONGO_USER || 'kimkuns'
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'rlawldi98'
 const MONGO_CLUSTER = process.env.MONGO_CLUSTER || 'cluster0.qtkzt.mongodb.net'
 const MONGO_DBNAME = process.env.MONGO_DBNAME || 'WhiteMouse'
-const GITHUB_ACCESS_TOKEN = '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'
+const GITHUB_ACCESS_TOKEN = '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'
 const CHATGPT_API_KEY = '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'
 /* eslint-disable prefer-destructuring */
 
@@ -44,7 +45,8 @@ const APP_CONFIG_JSON = JSON.stringify({
   KAKAO_JAVASCRIPT_KEY,
   KAKAO_REDIRECT_URI,
   KAKAO_REST_KEY,
-  CHATGPT_API_KEY
+  CHATGPT_API_KEY,
+  SOCKET_PORT
 }).replace(/"/g, '\\"')
 
 module.exports = {
@@ -61,5 +63,6 @@ module.exports = {
   KAKAO_JAVASCRIPT_KEY,
   KAKAO_REDIRECT_URI,
   KAKAO_REST_KEY,
-  CHATGPT_API_KEY
+  CHATGPT_API_KEY,
+  SOCKET_PORT
 }
